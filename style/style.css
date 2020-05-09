@@ -1,0 +1,74 @@
+body{
+    background-color: rgb(204, 222, 228);
+}
+.form_wrap{
+    margin-bottom: 20px;
+}
+.input, select{
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(136, 172, 202);
+}
+h2{
+    padding-top: 10px;
+    text-align: center;
+}
+.input_wrap{
+    display: flex;
+    flex-direction: column;
+}
+textarea{
+    min-height: 120px;
+    position: relative;
+}
+.btn{
+    background-color: rgb(65, 139, 199);
+    width: 90%;
+    position: relative;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error{
+    background-color: rgb(245, 180, 41);
+    position: absolute;
+    right: -70%;
+    bottom: 26%;
+}
+@media only screen and (max-width : 992px) {
+	.error{
+        padding: 0px;
+        right: -17%;
+        bottom: 0%;
+    }
+    .btn.error{
+        padding: 0px;
+        right: 15%;
+        bottom: 80%;
+    }
+    .btn ~ .error{
+        bottom: -46%;
+    }
+} 
+@media only screen and (max-width : 768px) {
+	.error{
+        padding: 0px;
+        right: 20%;
+        bottom: 1%;
+    }
+} 
+@media only screen and (max-width : 576px) {
+    .error{
+        right: 7%;
+        font-size: 13px;
+    }
+	h2{
+        font-size: 20px;
+    }
+} 
+
