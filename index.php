@@ -4,7 +4,7 @@ $errors = array();
 $oldInput = array();
 $data = array();
 $flag = true;
-
+   
 if(isset($_POST['submit'])){
     function test_input($res) {
         $res = trim($res); //убирает пробелы
