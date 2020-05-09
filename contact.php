@@ -13,7 +13,7 @@
     <div class="container">
         <h2>Форма связи</h2>
         <div class="form_wrap">
-            <form action="./send.php" method="post">
+            <form action="./index.php" method="post">
                 <div class="row d-flex flex-column align-content-center">
                     <div class="col-lg-4 col-md-6 col-sm-10 col-12">
                         <div class="input_wrap">

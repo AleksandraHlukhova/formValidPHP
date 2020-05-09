@@ -21,10 +21,10 @@ if(isset($_POST['submit'])){
     $data['subject'] = $subject;
     $name = test_input($name);
     if (empty($name)) {
-        $errors['name'] = 'Имя обязательно';
+        $errors['name'] = 'Поле обязательно к заполению';
         $oldInput['name'] = $name;
     }else if(mb_strlen($name) < 3){
-        $errors['name'] = 'Введите корректное имя ';
+        $errors['name'] = 'Введите корректное имя';
         $oldInput['name'] = $name;
     } else if(!preg_match("/^[a-яA-Я ]*$/",$name)) {
         // $name = test_input($name);
@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
 
     $email = test_input($email);
     if (false === filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)){
-        $errors['email'] = 'Email обязательно';
+        $errors['email'] = 'Поле обязательно к заполению';
         $oldInput['email'] = $email;
     }else if($flag){
         $oldInput['email'] = $email;
@@ -47,12 +47,12 @@ if(isset($_POST['submit'])){
     $phone = test_input($phone);
     $regexp = "/[0-9]/ui";
     if (empty($phone)){
-        $errors['phone'] = 'Поле должно быть заполнено';
+        $errors['phone'] = 'Поле обязательно к заполению';
         $oldInput['phone'] = $phone;
     }else if(!preg_match_all($regexp, $phone, $matches)){
-        $errors['phone'] = 'поле не может модержать буквы';
+        $errors['phone'] = 'Поле не может содержать буквы';
         $oldInput['phone'] = $phone;
-    }else if (mb_strlen($name) < 10) {
+    }else if (mb_strlen($phone) !==10) {
         $errors['phone'] = 'Введите корретный номер(10 симв.)';
         $oldInput['phone'] = $phone;
     }else if($flag){
@@ -62,9 +62,9 @@ if(isset($_POST['submit'])){
     
     $message = test_input($message);
     if(empty($message)){
-        $errors['message'] = 'Поле должно быть заполнено';
+        $errors['message'] = 'Поле обязательно к заполению';
     }else if(mb_strlen($message) < 20 && mb_strlen($message) !== 0){
-        $errors['message'] = 'опишите свой вопрос более развернуто';
+        $errors['message'] = 'Опишите свой вопрос более развернуто';
         $oldInput['message'] = $message;
     }else if($flag){
         $oldInput['message'] = $message;
