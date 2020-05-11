@@ -17,7 +17,6 @@ if(isset($_POST['submit'])){
     $phone = $_POST['phone'];
     $subject = $_POST['subject'];
     $message = $_POST['message'];
-    // $message = wordwrap($message, 70, "\r\n");
     $data['subject'] = $subject;
     $name = test_input($name);
     if (empty($name)) {
@@ -27,7 +26,6 @@ if(isset($_POST['submit'])){
         $errors['name'] = 'Введите корректное имя';
         $oldInput['name'] = $name;
     } else if(!preg_match("/^[a-яA-Я ]*$/",$name)) {
-        // $name = test_input($name);
         $errors['name'] = 'Разрешены только буквы и пробелы';
         $oldInput['name'] = $name;
     }else if($flag){
@@ -69,6 +67,7 @@ if(isset($_POST['submit'])){
     }else if($flag){
         $oldInput['message'] = $message;
     }
+        $message = wordwrap($message, 70, "\r\n");
         $data['message'] = $message;
     
     if(count($errors) === 0){
@@ -76,9 +75,11 @@ if(isset($_POST['submit'])){
 
         require_once "./func/functions.php";
         // send mail to the user
-        
+        // sendEmail($data);
+        // header('Location: ./redirectPages/success.php');
+        // exit;
         if(sendEmail($data)){
-            header('Location: success.php');
+            header('Location: ./redirectPages/success.php');
             exit;
         }else{
             print_r('Ошибка отправки формы! Попробуйте через пару минут');
